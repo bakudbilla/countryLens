@@ -3,7 +3,7 @@ import 'package:http/http.dart' as http;
 import '../models/country.dart';
 
 class ApiService {
-  static const String baseUrl = 'https://restcountries.com/v3.1';
+  static const String baseUrl = 'https://restcountries.com/v2';
 
   Future<List<Country>> getAllCountries() async {
     try {

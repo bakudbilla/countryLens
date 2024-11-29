@@ -18,23 +18,25 @@ class Country {
     required this.languages,
     required this.currencies,
   });
-
   factory Country.fromJson(Map<String, dynamic> json) {
     return Country(
-      name: json['name']['common'] ?? '',
-      capital: (json['capital'] as List?)?.first ?? '',
+      name: json['name'] is Map ? (json['name']['common'] ?? '') : json['name'] ?? '',
+      capital: json['capital'] is List && (json['capital'] as List).isNotEmpty
+          ? json['capital'][0]
+          : '',
       region: json['region'] ?? '',
       subregion: json['subregion'] ?? '',
       population: json['population'] ?? 0,
-      flag: json['flags']['png'] ?? '',
-      languages: json['languages'] == null 
-          ? [] 
-          : (json['languages'] as Map<String, dynamic>).values.toList().cast<String>(),
-      currencies: json['currencies'] == null 
-          ? {} 
-          : Map.from(json['currencies']).map(
-              (key, value) => MapEntry(key, (value as Map)['name'] as String)
-            ),
+      flag: json['flags'] is Map ? json['flags']['png'] ?? '' : '',
+      languages: json['languages'] != null && json['languages'] is Map
+          ? (json['languages'] as Map<String, dynamic>).values.toList().cast<String>()
+          : [],
+      currencies: json['currencies'] != null && json['currencies'] is Map
+          ? (json['currencies'] as Map<String, dynamic>).map(
+            (key, value) => MapEntry(key, (value as Map)['name'] ?? ''),
+      )
+          : {},
     );
   }
+
 }
