@@ -2,6 +2,8 @@
 
 Countrylens is a flutter application that helps you view the list of countries worldwide using rest countries API, in this app, you will be able to view the details of each country such as their Capital,Region, subregion and population.
 
+API URL: 'https://restcountries.com/v2'
+
 Prerequisites
 - Ensure you have the following tools installed:
 - Flutter SDK
