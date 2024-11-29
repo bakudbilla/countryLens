@@ -45,7 +45,7 @@ class CountrySearchDelegate extends SearchDelegate {
         provider.searchCountries(query);
 
         return Container(
-          color: Colors.blueAccent, // Set background color here
+          color: Colors.blueAccent,
           child: ListView.builder(
             itemCount: provider.filteredCountries.length,
             itemBuilder: (context, index) {

@@ -2,7 +2,7 @@ import 'package:countrylens/screens/country_search_delegate.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import '../provider/country_provider.dart';
-
+//The Homescreen sets up the UI of the whole application
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
 
