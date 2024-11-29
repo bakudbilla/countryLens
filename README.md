@@ -1,16 +1,64 @@
 # countrylens
 
-A new Flutter project.
+Countrylens is a flutter application that helps you view the list of countries worldwide using rest countries API, in this app, you will be able to view the details of each country such as their Capital,Region, subregion and population.
 
-## Getting Started
+Prerequisites
+Ensure you have the following tools installed:
+Flutter SDK
+Install Flutter
+Dart SDK (comes with Flutter)
+Android Studio (for Android emulation)
+Git: Install Git
 
-This project is a starting point for a Flutter application.
+Installation
+Clone the Repository:
+git clone https://github.com/KennyKvn001/farm-ed_flutter_app 
+cd insurancecostpredictor
+Install Dependencies: Inside the project directory, run:
 
-A few resources to get you started if this is your first Flutter project:
+flutter pub get
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+Add required dependencies to pubspec.yaml:
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+dependencies:
+  flutter:
+    sdk: flutter
+  http: ^1.1.0
+
+Folder Structure
+countrylens/
+├── android/
+├── ios/
+├── lib/
+│   ├── main.dart
+│   ├── models/
+│   │   ├── country.dart
+│   ├── provider/
+│   ├── screens/
+│   ├── services/
+├── linux/
+├── macos/
+├── web/
+├── windows/
+├── test/
+├── build/
+├── images/
+├── pubspec.yaml
+├── pubspec.lock
+├── README.md
+├── .gitignore
+└── .metadata
+
+Configure assets in pubspec.yaml:
+
+flutter:
+  assets:
+    - images/background.jpeg
+Running the Application
+
+Start an Emulator or Connect a Device: Use Android Studio to launch an emulator or connect a physical device.
+
+Run the App:
+
+flutter run
+Hot Reload (during development): Make changes and save to see updates instantly.
