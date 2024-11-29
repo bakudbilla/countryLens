@@ -78,7 +78,7 @@ class _HomeScreenState extends State<HomeScreen> {
               ),
             ],
           ),
-          // List of countries
+          // List of countries for homescreen
           Expanded(
             child: Consumer<CountryProvider>(
               builder: (context, provider, child) {

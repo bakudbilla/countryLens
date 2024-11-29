@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import '../models/country.dart';
-
+//The details class ensures, the api fetches the capital. language etc
 class DetailsScreen extends StatefulWidget {
   const DetailsScreen({super.key});
 

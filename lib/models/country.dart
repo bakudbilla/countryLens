@@ -18,25 +18,21 @@ class Country {
     required this.languages,
     required this.currencies,
   });
+
   factory Country.fromJson(Map<String, dynamic> json) {
     return Country(
-      name: json['name'] is Map ? (json['name']['common'] ?? '') : json['name'] ?? '',
-      capital: json['capital'] is List && (json['capital'] as List).isNotEmpty
-          ? json['capital'][0]
-          : '',
+      name: json['name'] ?? '',
+      capital: json['capital'] ?? '',
       region: json['region'] ?? '',
       subregion: json['subregion'] ?? '',
       population: json['population'] ?? 0,
-      flag: json['flags'] is Map ? json['flags']['png'] ?? '' : '',
-      languages: json['languages'] != null && json['languages'] is Map
-          ? (json['languages'] as Map<String, dynamic>).values.toList().cast<String>()
+      flag: json['flags']['png'] ?? '',
+      languages: json['languages'] != null && json['languages'] is List
+          ? (json['languages'] as List).map((lang) => lang['name']).toList().cast<String>()
           : [],
-      currencies: json['currencies'] != null && json['currencies'] is Map
-          ? (json['currencies'] as Map<String, dynamic>).map(
-            (key, value) => MapEntry(key, (value as Map)['name'] ?? ''),
-      )
+      currencies: json['currencies'] != null && json['currencies'] is List
+          ? Map.fromIterable(json['currencies'], key: (item) => item['code'], value: (item) => item['name'])
           : {},
     );
   }
-
 }
